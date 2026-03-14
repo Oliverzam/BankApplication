@@ -1,0 +1,39 @@
+{
+  "info": {
+    "name": "BankApplication",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Clients",
+      "item": [
+        {"name": "Get All Clients", "request": {"method": "GET", "url": {"raw": "http://localhost:8001/api/clients"}}},
+        {"name": "Get Client By Id", "request": {"method": "GET", "url": {"raw": "http://localhost:8001/api/clients/1"}}},
+        {"name": "Create Client", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\"dni\":\"1234567890\",\"name\":\"Juan Perez\",\"password\":\"123\",\"gender\":\"M\",\"age\":30,\"address\":\"Quito\",\"phone\":\"0999999999\",\"isActive\":true}"}, "url": {"raw": "http://localhost:8001/api/clients"}}},
+        {"name": "Update Client", "request": {"method": "PUT", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\"dni\":\"1234567890\",\"name\":\"Juan Updated\",\"password\":\"123\",\"gender\":\"M\",\"age\":31,\"address\":\"Quito\",\"phone\":\"0999999999\",\"isActive\":true}"}, "url": {"raw": "http://localhost:8001/api/clients/1"}}},
+        {"name": "Partial Update Client", "request": {"method": "PATCH", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\"isActive\":false}"}, "url": {"raw": "http://localhost:8001/api/clients/1"}}},
+        {"name": "Delete Client", "request": {"method": "DELETE", "url": {"raw": "http://localhost:8001/api/clients/1"}}}
+      ]
+    },
+    {
+      "name": "Accounts",
+      "item": [
+        {"name": "Get All Accounts", "request": {"method": "GET", "url": {"raw": "http://localhost:8000/api/accounts"}}},
+        {"name": "Get Account By Id", "request": {"method": "GET", "url": {"raw": "http://localhost:8000/api/accounts/1"}}},
+        {"name": "Create Account", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\"number\":\"478758\",\"type\":\"Ahorros\",\"initialAmount\":1000.0,\"isActive\":true,\"clientId\":1}"}, "url": {"raw": "http://localhost:8000/api/accounts"}}},
+        {"name": "Update Account", "request": {"method": "PUT", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\"number\":\"478758\",\"type\":\"Corriente\",\"initialAmount\":1000.0,\"isActive\":true,\"clientId\":1}"}, "url": {"raw": "http://localhost:8000/api/accounts/1"}}},
+        {"name": "Partial Update Account", "request": {"method": "PATCH", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\"isActive\":false}"}, "url": {"raw": "http://localhost:8000/api/accounts/1"}}},
+        {"name": "Delete Account", "request": {"method": "DELETE", "url": {"raw": "http://localhost:8000/api/accounts/1"}}}
+      ]
+    },
+    {
+      "name": "Transactions",
+      "item": [
+        {"name": "Get All Transactions", "request": {"method": "GET", "url": {"raw": "http://localhost:8000/api/transactions"}}},
+        {"name": "Get Transaction By Id", "request": {"method": "GET", "url": {"raw": "http://localhost:8000/api/transactions/1"}}},
+        {"name": "Create Transaction", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\"amount\":200.0,\"accountId\":1}"}, "url": {"raw": "http://localhost:8000/api/transactions"}}},
+        {"name": "Get Report", "request": {"method": "GET", "url": {"raw": "http://localhost:8000/api/transactions/clients/1/report?dateTransactionStart=2024-01-01&dateTransactionEnd=2024-12-31"}}}
+      ]
+    }
+  ]
+}
